@@ -51,8 +51,7 @@ Build Project in Microsoft Visual Studio
 ```
 Build -> Build Solution
 ```
-Open cmd in directory ../MPI-Matrix-Determinant/x64/Debug/
-Try this command
+Open cmd in directory ../MPI-Matrix-Determinant/x64/Debug/ and then try this command
 ```
 mpiexec -n nProcessMPI MPI.exe MatrixSize
 ```
