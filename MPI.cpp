@@ -38,7 +38,7 @@ vector<vector<int>> generateRandomMatrix(int N) {
     return vec;
 }
 
-vector<vector<int>> cofactor(vector<vector<int>>& vec, int row, int col) {
+vector<vector<int>> minor(vector<vector<int>>& vec, int row, int col) {
     vector<vector<int>> result;
     for (int i = 0; i < vec.size(); i++) {
         if (i == row) continue;
@@ -60,7 +60,7 @@ int determinant(vector<vector<int>>& vec) {
         int result = 0;
         for (int i = 0; i < vec.at(0).size(); i++) {
             if (vec.at(0)[i] == 0) continue;
-            vector<vector<int>> cof = cofactor(vec, 0, i);
+            vector<vector<int>> cof = minor(vec, 0, i);
             if ((i + 1) % 2 != 0) {
                 result += vec.at(0)[i] * determinant(cof);
             }
@@ -129,7 +129,8 @@ int main(int argc, char** argv) {
     else {
             for (int i = start_pos; i < end_pos; i++) {
                 if (mat.at(0)[i] == 0) continue;
-                vector<vector<int>> cof = cofactor(mat, 0, i);
+                vector<vector<int>> cof = minor(mat, 0, i);
+                // Make cofactor
                 if ((i + 1) % 2 != 0) {
                     curr_rank_result += mat.at(0)[i] * determinant(cof);
                 }
